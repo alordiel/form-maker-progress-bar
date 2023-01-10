@@ -35,7 +35,7 @@ function fmpb_progress_bar( $attributes ) {
 	if ($progress > 100) {
 		$progress = 100;
 	}
-	echo '<div class="fmpb-progress">
+	return '<div class="fmpb-progress">
   			<div
   			    class="fmpb-progress-bar"
   			    style="width: ' . $progress . '%"
