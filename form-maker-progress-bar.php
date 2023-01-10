@@ -31,10 +31,11 @@ function fmpb_progress_bar( $attributes ) {
 		$sql .= " AND element_value LIKE '%verified%'";
 	}
 	$count    = $wpdb->get_var( $wpdb->prepare( $sql, $attributes['form-id'] ) );
-	$progress = ( $count / $attributes['target-votes']) * 100;
-	if ($progress > 100) {
+	$progress = ( $count / $attributes['target-votes'] ) * 100;
+	if ( $progress > 100 ) {
 		$progress = 100;
 	}
+
 	return '<div class="fmpb-progress">
   			<div
   			    class="fmpb-progress-bar"
@@ -42,7 +43,7 @@ function fmpb_progress_bar( $attributes ) {
   			    aria-valuenow="' . $progress . '"
   			    aria-valuemax="100"
   			    >
-  			    '.sprintf(__('%d out of %d votes','fmpb'),$count,$attributes['target-votes']).'
+  			    ' . sprintf( __( '%d out of %d votes', 'fmpb' ), $count, $attributes['target-votes'] ) . '
 			</div>
 		 </div>
 		 <style>
@@ -60,3 +61,14 @@ function fmpb_progress_bar( $attributes ) {
 }
 
 add_shortcode( 'fmpb-progress', 'fmpb_progress_bar' );
+
+
+
+
+/**
+ * Load plugin textdomain.
+ */
+function fmpb_load_textdomain() {
+  load_plugin_textdomain( 'fmpb', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+}
+add_action( 'init', 'fmpb_load_textdomain' );
