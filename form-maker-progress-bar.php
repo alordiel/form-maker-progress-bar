@@ -7,7 +7,7 @@ Version: 1.0.0
 Author: Alexander Vasilev
 Author URI: https://timelinedev.com
 License: GPLv2
-text-domain: fmpb
+text-domain: form-maker-progress-bar
 */
 
 // Exit if accessed directly.
@@ -69,6 +69,6 @@ add_shortcode( 'fmpb-progress', 'fmpb_progress_bar' );
  * Load plugin textdomain.
  */
 function fmpb_load_textdomain() {
-  load_plugin_textdomain( 'fmpb', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+  load_plugin_textdomain( 'form-maker-progress-bar', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
 add_action( 'init', 'fmpb_load_textdomain' );
